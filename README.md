@@ -9,3 +9,5 @@
 [ERD](https://drawsql.app/swaroop/diagrams/notp) - ERD for the project (in progress)
 
 [Frontend Repo](https://github.com/breadfan18/notp) - Link to React front end repo
+
+[API](https://api.covidtracking.com/v1/states/daily.json) - Link to API that will be used to pull data
