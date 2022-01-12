@@ -50,7 +50,7 @@ indexRouter.get('/data/seed', async (req, res) => {
 
 indexRouter.get('/data', async (req, res) => {
     try {
-        res.json(await CovidData.find({}))
+        res.status(200).json(await CovidData.find({}))
     } catch (err) {
         res.status(400).json(error)
     }
