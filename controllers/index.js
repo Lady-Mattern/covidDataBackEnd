@@ -43,8 +43,8 @@ indexRouter.get('/data/seed', async (req, res) => {
             totalRecovered: Math.floor(Math.random() * (1000000 - 3500000) + 1000000)
         },
     ]
-    await CovidData.deleteMany({}) //deleted everything in the database
-    await CovidData.create(data); //created new data from the seed data above. 
+    await CovidData.deleteMany({}) 
+    await CovidData.create(data);  
     res.redirect('/data')
 })
 
