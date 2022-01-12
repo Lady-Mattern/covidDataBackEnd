@@ -9,32 +9,32 @@ indexRouter.get('/data/seed', async (req, res) => {
         {
             state: 'CA',
             totalCases: Math.floor(Math.random() * (5000000 - 1000000) + 1000000),
-            totalDeaths: Math.floor(Math.random() * (200000 - 700000) + 200000),
+            totalDeaths: Math.floor(Math.random() * (700000 - 200000) + 200000),
             totalRecovered: Math.floor(Math.random() * (1000000 - 3500000) + 1000000)
         },
         {
             state: 'PA',
             totalCases: Math.floor(Math.random() * (5000000 - 1000000) + 1000000),
-            totalDeaths: Math.floor(Math.random() * (200000 - 700000) + 200000),
-            totalRecovered: Math.floor(Math.random() * (1000000 - 3500000) + 1000000)
+            totalDeaths: Math.floor(Math.random() * (700000 - 200000) + 200000),
+            totalRecovered: Math.floor(Math.random() * (3500000 - 1000000) + 1000000)
         },
         {
             state: 'OH',
             totalCases: Math.floor(Math.random() * (5000000 - 1000000) + 1000000),
-            totalDeaths: Math.floor(Math.random() * (200000 - 700000) + 200000),
-            totalRecovered: Math.floor(Math.random() * (1000000 - 3500000) + 1000000)
+            totalDeaths: Math.floor(Math.random() * (700000 - 200000) + 200000),
+            totalRecovered: Math.floor(Math.random() * (3500000 - 1000000) + 1000000)
         },
         {
             state: 'NY',
             totalCases: Math.floor(Math.random() * (5000000 - 1000000) + 1000000),
-            totalDeaths: Math.floor(Math.random() * (200000 - 700000) + 200000),
-            totalRecovered: Math.floor(Math.random() * (1000000 - 3500000) + 1000000)
+            totalDeaths: Math.floor(Math.random() * (700000 - 200000) + 200000),
+            totalRecovered: Math.floor(Math.random() * (3500000 - 1000000) + 1000000)
         },
         {
             state: 'OR',
             totalCases: Math.floor(Math.random() * (5000000 - 1000000) + 1000000),
-            totalDeaths: Math.floor(Math.random() * (200000 - 700000) + 200000),
-            totalRecovered: Math.floor(Math.random() * (1000000 - 3500000) + 1000000)
+            totalDeaths: Math.floor(Math.random() * (700000 - 200000) + 200000),
+            totalRecovered: Math.floor(Math.random() * (3500000 - 1000000) + 1000000)
         },
         {
             state: 'MI',
@@ -49,7 +49,11 @@ indexRouter.get('/data/seed', async (req, res) => {
 })
 
 indexRouter.get('/data', async (req, res) => {
-    await res.send('do you have TP??');
+    try {
+        res.json(await CovidData.find({}))
+    } catch (err) {
+        res.status(400).json(error)
+    }
 })
 
 
