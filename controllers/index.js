@@ -57,4 +57,12 @@ indexRouter.get('/data', async (req, res) => {
 })
 
 
+indexRouter.delete('/data/:id', async (req, res) => {
+    try {
+        res.status(200).json(await CovidData.findOneAndDelete(req.params.id))
+    } catch (err) {
+        res.status(400).json(error);
+    }
+})
+
 module.exports = indexRouter;
