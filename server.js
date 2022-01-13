@@ -1,17 +1,11 @@
-// get .env variables
-require("dotenv").config()
-// pull PORT from .env, give default value of 3001
-// pull DATABASE_URL from .env
-const { PORT = 3001, DATABASE_URL } = process.env
-// import express
 const express = require("express")
-// create application object
 const app = express()
-// import mongoose
+require("dotenv").config()
+const { PORT = 3001, DATABASE_URL } = process.env
 const mongoose = require("mongoose")
 const cors = require("cors")
 const morgan = require("morgan")
-
+const indexController = require('./controllers/index');
 
 // DATABASE CONNECTION 
 mongoose.connect(DATABASE_URL)
@@ -25,12 +19,7 @@ mongoose.connection
 app.use(cors()) // to prevent cors errors, open access to all origins
 app.use(morgan("dev")) // logging
 app.use(express.json()) // parse json bodies
-
-// ROUTES
-// create a test route
-app.get("/", (req, res) => {
-    res.send("hello world")
-})
+app.use('/', indexController)
 
 // LISTENER
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`))
