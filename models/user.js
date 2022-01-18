@@ -7,18 +7,19 @@ const favoritesSchema = new Schema({
     totalDeaths: Number,
     totalRecovered: Number
 },
-{
-    timestamps: true
-})
+    {
+        timestamps: true
+    })
 
 const userSchema = new Schema({
     firstName: String,
     lastName: String,
     email: String,
+    password: String,
     favorites: [favoritesSchema]
-}, 
-{
-    timestamps: true
-})
+},
+    {
+        timestamps: true
+    })
 
 module.exports = mongoose.model('User', userSchema);
