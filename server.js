@@ -41,7 +41,7 @@ app.use(async function (req, res, next) {
 
 // mount routes
 app.use('/', indexController)
-app.use('/users', usersController)
+// app.use('/users', usersController)
 
 // LISTENER
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`))
